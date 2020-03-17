@@ -5,11 +5,16 @@ using System.Text;
 
 namespace CypherBot.Utilities
 {
-    public static class RandomGenerator
+    public class RandomGeneratorService
     {
-        private static Random rnd = null;
+        private Random rnd = null;
 
-        public static Random GetRandom()
+        public RandomGeneratorService()
+        {
+
+        }
+
+        public Random GetRandom()
         {
             if (rnd == null)
             {
@@ -19,7 +24,7 @@ namespace CypherBot.Utilities
             return rnd;
         }
 
-        public static string GetRandomDesination(int length)
+        public string GetRandomDesination(int length)
         {
             var rnd = GetRandom();
 

@@ -5,10 +5,15 @@ namespace CypherBot.Core.DataAccess.Repos
 {
     public class CypherContext : DbContext
     {
+        public CypherContext(DbContextOptions<CypherContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=cs.db");
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    //optionsBuilder.UseSqlite("Data Source=cs.db");
+        //    optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=CypherBot;User ID=CypherBot;Password=gigahz");
+        //}
 
         public DbSet<Character> Characters { get; set; }
         public DbSet<CharacterInventory> CharacterInventories { get; set; }
